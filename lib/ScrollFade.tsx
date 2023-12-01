@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-const easeIn = (t: number, alpha: number) => Math.pow(t, alpha);
+const easeIn = (t: number, alpha: number): number => { return Math.pow(t, alpha) };
 const FADE_HEIGHT = 56;
 
-type ScrollFadeProps = { height?: number };
+interface ScrollFadeProps { height?: number };
 
-const ScrollFade = ({ height }: ScrollFadeProps) => {
+const ScrollFade: React.FC<ScrollFadeProps> = ({ height }) => {
     const rootRef = useRef<HTMLDivElement>(null);
     const getMaskRef = useRef<(opacity: number) => string>(
         (opacity: number) => `linear-gradient(180deg, black, rgba(0,50, 255, ${opacity})) center bottom/100%
@@ -16,7 +16,7 @@ const ScrollFade = ({ height }: ScrollFadeProps) => {
 
     const onScroll = useCallback(() => {
         const scrollElement = rootRef.current?.parentElement;
-        if (scrollElement) {
+        if (scrollElement !== null && scrollElement !== undefined) {
             const getMask = getMaskRef.current;
             const { offsetHeight: elementHeight, scrollHeight: elementWidth, scrollTop } = scrollElement;
             const opacity = easeIn(scrollTop / (elementHeight - elementWidth), 10);
@@ -30,16 +30,15 @@ const ScrollFade = ({ height }: ScrollFadeProps) => {
     useEffect(() => {
         const scrollElement = rootRef.current?.parentElement;
 
-        if (scrollElement) {
+        if (scrollElement !== null && scrollElement !== undefined) {
             const { offsetHeight, scrollHeight } = scrollElement;
             if (offsetHeight !== scrollHeight) {
                 const mask = getMaskRef.current(0);
                 scrollElement.style.mask = mask;
-                scrollElement.style.webkitMask = mask;
             }
 
             scrollElement.addEventListener('scroll', onScroll);
-            return () => scrollElement.removeEventListener('scroll', onScroll);
+            return () => { scrollElement.removeEventListener('scroll', onScroll) };
         }
     }, []);
 
