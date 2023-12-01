@@ -8,26 +8,16 @@ module.exports = {
         "plugin:react/recommended",
         "prettier"
     ],
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                './lib/**/*.{ts,tsx}',
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            },
-            "extends": [
-                'plugin:@typescript-eslint/recommended-requiring-type-checking',
-            ],
-        },
-    ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json",
     },
+    "overrides": [
+        {
+            "files": ["lib/*.{ts,tsx}"],
+        }
+    ],
     "plugins": [
         "react"
     ],

@@ -2,12 +2,13 @@
     "name": "react-scrollfade",
     "version": "1.1.0",
     "description": "A React component for fading out the bottom of a scrolling element.",
-    "main": "./dist/index.js",
+    "main": "dist/index.js",
+    "source": "lib/index.ts",
     "scripts": {
-        "build": "npm run clean && tsc",
-        "lint": "eslint .",
-        "clean": "rimraf ./dist",
-        "examples": "npx parcel --no-autoinstall examples/index.html -d examples/dist",
+        "build": "npm run clean ; tsc",
+        "lint": "npm run clean ; eslint .",
+        "clean": "rimraf ./dist ; rimraf ./examples/dist",
+        "examples": "npm run build && npx parcel --no-autoinstall ./examples/index.html --dist-dir ./examples/dist",
         "prepare": "husky install"
     },
     "repository": {
