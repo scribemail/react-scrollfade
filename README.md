@@ -8,7 +8,7 @@ React Scrollfade is a React component designed to dynamically fade out the botto
 
 You can install the library using npm:
 
-```
+```sh
 npm install @benestudioco/react-scrollfade
 ```
 
@@ -64,7 +64,7 @@ export const ExampleWithCustomHeight = () => (
 ### Browser Support
 
 The component utilizes CSS masks and -webkit-masks as a fallbak.
-See browser compatibilities here: https://caniuse.com/?search=mask
+See browser compatibilities in the [caniuse.com article](https://caniuse.com/?search=mask).
 
 ### Examples
 
