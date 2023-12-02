@@ -35,6 +35,7 @@ const ScrollFade: React.FC<ScrollFadeProps> = ({ height }) => {
             if (offsetHeight !== scrollHeight) {
                 const mask = getMaskRef.current(0);
                 scrollElement.style.mask = mask;
+                scrollElement.style.webkitMask = mask;
             }
 
             scrollElement.addEventListener('scroll', onScroll);

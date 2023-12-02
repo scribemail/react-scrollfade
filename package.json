@@ -1,6 +1,6 @@
 {
     "name": "@korhox/react-scrollfade",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A React component for fading out the bottom of a scrolling element.",
     "main": "dist/index.js",
     "source": "lib/index.ts",
@@ -8,7 +8,7 @@
         "build": "npm run clean ; tsc",
         "lint": "npm run clean ; eslint .",
         "clean": "rimraf ./dist ; rimraf ./examples/dist",
-        "examples": "npm run build && npx parcel --no-autoinstall ./examples/index.html --dist-dir ./examples/dist",
+        "examples": "npx parcel ./examples/index.html --dist-dir ./examples/dist",
         "prepare": "husky install"
     },
     "repository": {
@@ -49,6 +49,7 @@
         "eslint-plugin-react": "^7.33.2",
         "husky": "^8.0.3",
         "prettier": "3.1.0",
+        "process": "^0.11.10",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
