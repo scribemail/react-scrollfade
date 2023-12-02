@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:korhox/react-scrollfade.git"
+        "url": "git+ssh://git@github.com/korhox/react-scrollfade.git"
     },
     "keywords": [
         "React",
