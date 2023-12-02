@@ -1,14 +1,18 @@
 import React from 'react';
 import ScrollFade from '../lib/ScrollFade';
 
-const Simple = () => (
+const WithHeightProp = () => (
     <div>
         <div
             style={{
-                width: 500, position: 'relative', height: 300, overflowY: 'auto', background: 'dodgerblue',
+                width: 500,
+                position: 'relative',
+                height: 300,
+                overflowY: 'auto',
+                background: 'red',
             }}
         >
-            <ScrollFade />
+            <ScrollFade height={220} intensity={40} />
             <p>Dolor amet eu occaecat excepteur do adipisicing cillum duis. Est ullamco ullamco sit ea irure consequat iddo ex enim consectetur nisi duis elit. Qui mollit magna exercitation est sit.</p>
             <p>Magna nostrud anim fugiataliquip consectetur excepteur nostrud voluptate magna reprehenderit magna sunt. Nostrud do sint consequatsunt occaecat Lorem proident nulla. Lorem nisi do culpa nisi elit. Deserunt incididunt anim exercitationcupidatat tempor non minim duis fugiat eiusmod qui mollit do. Ut ea esse proident ex dolore esse officianulla enim nostrud irure nulla ipsum. Exercitation proident incididunt ea quis tempor Lorem eu officiaexcepteur aliqua ea dolore dolor id.</p>
             <p>Ex cillum sunt sunt eiusmod cupidatat irure veniam ullamco commodoqui tempor. Ea ullamco consequat fugiat cillum laborum consectetur velit voluptate eu sint eiusmodexercitation commodo. Consequat elit cupidatat ut eiusmod velit aliquip esse deserunt occaecat sint suntreprehenderit. Tempor aliqua cillum in in. Dolor nostrud adipisicing in ea esse voluptate incididunt.</p>
@@ -19,4 +23,4 @@ const Simple = () => (
     </div>
 );
 
-export default Simple;
+export default WithHeightProp;
