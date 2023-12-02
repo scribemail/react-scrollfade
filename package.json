@@ -25,9 +25,6 @@
     "author": "korhox, original: Levente Rozsenich @ Benestudio (https://benestudio.co)",
     "license": "MIT",
     "homepage": "https://github.com/korhox/react-scrollfade#readme",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
     "files": [
         "dist/**/*"
     ],
