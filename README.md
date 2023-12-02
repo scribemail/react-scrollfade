@@ -4,12 +4,21 @@ React Scrollfade is a React component designed to dynamically fade out the botto
 
 ![demo](./scroll_fade_example.png)
 
+## Fork of a fork
+This repository is forked from a fork created by [WajuAbolarin](https://github.com/WajuAbolarin/react-scrollfade), who introduced the height prop. The original repository is [benestudio/react-scrollfade](https://github.com/benestudio/react-scrollfade) and it's licensed under the MIT license. This fork is also kept under the MIT license and it's maintained by me. I'm not the original author of this library, I just needed to update it to the latest React version and I'm keeping it up to date.
+
+If you are looking for the original repository, please go to [benestudio/react-scrollfade](htthttps://github.com/benestudio/react-scrollfade) instead. I'm  maintaining this fork for my own projects, but I'm happy to accept pull requests and issues if you want to contribute.
+
+I'm planning to add some more features to this library, like the ability to customize the fade intensity. If you have any suggestions, please open an issue.
+
+This package is also available on npm as [@korhox/react-scrollfade](https://www.npmjs.com/package/@korhox/react-scrollfade).
+
 ## Installation
 
 You can install the library using npm:
 
 ```sh
-npm install @benestudioco/react-scrollfade
+npm install @korhox/react-scrollfade
 ```
 
 ## How to use it
@@ -19,7 +28,7 @@ The fade makes the bottom of the element transparent, so the color of the fade i
 
 ```jsx
 import React from 'react';
-import ScrollFade from '@benestudioco/react-scrollfade';
+import ScrollFade from '@korhox/react-scrollfade';
 
 export const Example = () => (
     <div
@@ -43,7 +52,7 @@ You can also set a different height for the fade
 
 ```jsx
 import React from 'react';
-import ScrollFade from '@benestudioco/react-scrollfade';
+import ScrollFade from '@korhox/react-scrollfade';
 
 export const ExampleWithCustomHeight = () => (
     <div
@@ -63,7 +72,6 @@ export const ExampleWithCustomHeight = () => (
 
 ### Browser Support
 
-The component utilizes CSS masks and -webkit-masks as a fallbak.
 See browser compatibilities in the [caniuse.com article](https://caniuse.com/?search=mask).
 
 ### Examples
