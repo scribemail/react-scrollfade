@@ -23,7 +23,7 @@ const ScrollFade: React.FC<ScrollFadeProps> = ({ height = 64, intensity = 0 }) =
         if (scrollElement !== null && scrollElement !== undefined) {
             const getMask = getMaskRef.current;
             const { offsetHeight: elementHeight, scrollHeight: elementWidth, scrollTop } = scrollElement;
-            let opacity = easeIn(scrollTop / (elementHeight - elementWidth), 10);
+            const opacity = easeIn(scrollTop / (elementHeight - elementWidth), 10);
             const mask = getMask(opacity);
 
             scrollElement.style.mask = mask;
