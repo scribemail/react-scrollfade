@@ -1,65 +1,65 @@
 {
-    "name": "@korhox/react-scrollfade",
-    "version": "1.2.0",
-    "description": "A React component for fading out the bottom of a scrolling element.",
-    "main": "dist/index.js",
-    "source": "lib/index.ts",
-    "scripts": {
-        "build": "npm run clean ; tsc",
-        "lint": "npm run clean ; eslint .",
-        "clean": "rimraf ./dist ; rimraf ./examples/dist",
-        "examples": "npx parcel ./examples/index.html --dist-dir ./examples/dist",
-        "prepare": "husky install"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/korhox/react-scrollfade.git"
-    },
-    "keywords": [
-        "React",
-        "scroll",
-        "fade",
-        "fading",
-        "overflow"
-    ],
-    "author": "korhox, original: Levente Rozsenich @ Benestudio (https://benestudio.co)",
-    "license": "MIT",
-    "homepage": "https://github.com/korhox/react-scrollfade#readme",
-    "files": [
-        "dist/**/*"
-    ],
-    "peerDependencies": {
-        "prop-types": "^15.8.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-    },
-    "devDependencies": {
-        "@tsconfig/recommended": "^1.0.3",
-        "@types/node": "^20.10.1",
-        "@types/prop-types": "^15.7.11",
-        "@types/react": "^18.2.39",
-        "@types/react-dom": "^18.2.17",
-        "@typescript-eslint/eslint-plugin": "^6.13.1",
-        "eslint": "^8.54.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-config-standard-with-typescript": "^40.0.0",
-        "eslint-plugin-import": "^2.29.0",
-        "eslint-plugin-n": "^16.3.1",
-        "eslint-plugin-promise": "^6.1.1",
-        "eslint-plugin-react": "^7.33.2",
-        "husky": "^8.0.3",
-        "prettier": "3.1.0",
-        "process": "^0.11.10",
-        "prop-types": "^15.8.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "rimraf": "^5.0.5",
-        "ts-loader": "^9.5.1",
-        "typescript": "^5.3.2"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint"
-        }
+  "name": "@scribemail/react-scrollfade",
+  "version": "1.2.0",
+  "description": "A React component for fading out the bottom of a scrolling element.",
+  "main": "dist/index.js",
+  "source": "lib/index.ts",
+  "scripts": {
+    "build": "npm run clean ; tsc",
+    "lint": "npm run clean ; eslint .",
+    "clean": "rimraf ./dist ; rimraf ./examples/dist",
+    "examples": "npx parcel ./examples/index.html --dist-dir ./examples/dist",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/korhox/react-scrollfade.git"
+  },
+  "keywords": [
+    "React",
+    "scroll",
+    "fade",
+    "fading",
+    "overflow"
+  ],
+  "author": "korhox, original: Levente Rozsenich @ Benestudio (https://benestudio.co)",
+  "license": "MIT",
+  "homepage": "https://github.com/korhox/react-scrollfade#readme",
+  "files": [
+    "dist/**/*"
+  ],
+  "peerDependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.3",
+    "@types/node": "^20.10.1",
+    "@types/prop-types": "^15.7.11",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^40.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
+    "prettier": "3.1.0",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
     }
+  }
 }
