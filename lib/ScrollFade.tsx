@@ -1,52 +1,68 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-const easeIn = (t: number, alpha: number): number => { return Math.pow(t, alpha) };
+const easeIn = (t: number, alpha: number): number => Math.pow(t, alpha);
 
-interface ScrollFadeProps { height?: number, intensity?: number };
+interface ScrollFadeProps {
+  height?: number;
+  intensity?: number;
+}
 
 const ScrollFade: React.FC<ScrollFadeProps> = ({ height = 64, intensity = 0 }) => {
-    const rootRef = useRef<HTMLDivElement>(null);
-    const getMaskRef = useRef<(opacity: number) => string>(
-        (opacity: number) => {
-            return (`
-                linear-gradient(180deg, black 0%, rgba(255, 255, 255, ${opacity}) ${(100 - intensity) - 1}%)
-                    center bottom/100% ${height}px no-repeat,
-                linear-gradient(180deg, black, black)
-                    center top/100% calc(100% - ${height}px) no-repeat
-            `)
-        }
-    );
+  const rootRef = useRef<HTMLDivElement>(null);
 
+  const getMask = useCallback(
+    (opacity: number): string => {
+      return `
+        linear-gradient(180deg, black 0%, rgba(255, 255, 255, ${opacity}) ${(100 - intensity) - 1}%)
+          center bottom/100% ${height}px no-repeat,
+        linear-gradient(180deg, black, black)
+          center top/100% calc(100% - ${height}px) no-repeat
+      `;
+    },
+    [height, intensity]
+  );
 
-    const onScroll = useCallback(() => {
-        const scrollElement = rootRef.current?.parentElement;
-        if (scrollElement !== null && scrollElement !== undefined) {
-            const getMask = getMaskRef.current;
-            const { offsetHeight: elementHeight, scrollHeight: elementWidth, scrollTop } = scrollElement;
-            const opacity = easeIn(scrollTop / (elementHeight - elementWidth), 10);
-            const mask = getMask(opacity);
+  const applyMask = useCallback(() => {
+    const scrollElement = rootRef.current?.parentElement;
+    if (scrollElement) {
+      const { offsetHeight, scrollHeight, scrollTop } = scrollElement;
+      const opacity = easeIn(scrollTop / (scrollHeight - offsetHeight), 10);
+      const mask = getMask(opacity);
+      scrollElement.style.mask = mask;
+      scrollElement.style.webkitMask = mask;
+    }
+  }, [getMask]);
 
-            scrollElement.style.mask = mask;
-            scrollElement.style.webkitMask = mask;
-        }
-    }, []);
+  useEffect(() => {
+    const scrollElement = rootRef.current?.parentElement;
 
-    useEffect(() => {
-        const scrollElement = rootRef.current?.parentElement;
+    if (scrollElement) {
+      const { offsetHeight, scrollHeight } = scrollElement;
+      if (offsetHeight !== scrollHeight) {
+        const initialMask = getMask(0);
+        scrollElement.style.mask = initialMask;
+        scrollElement.style.webkitMask = initialMask;
+      }
 
-        if (scrollElement !== null && scrollElement !== undefined) {
-            const { offsetHeight, scrollHeight } = scrollElement;
-            if (offsetHeight !== scrollHeight) {
-                const mask = getMaskRef.current(0);
-                scrollElement.style.mask = mask;
-                scrollElement.style.webkitMask = mask;
-            }
+      const onScroll = () => {
+        applyMask();
+      };
 
-            scrollElement.addEventListener('scroll', onScroll);
-            return () => { scrollElement.removeEventListener('scroll', onScroll) };
-        }
-    }, []);
+      const resizeObserver = new ResizeObserver(() => {
+        applyMask();
+      });
 
-    return <div className="scroll-fade" ref={rootRef} />;
+      scrollElement.addEventListener('scroll', onScroll);
+      resizeObserver.observe(scrollElement);
+
+      return () => {
+        scrollElement.removeEventListener('scroll', onScroll);
+        resizeObserver.disconnect();
+      };
+    }
+  }, [applyMask, getMask]);
+
+  return <div className="scroll-fade" ref={rootRef} />;
 };
+
 export default ScrollFade;
