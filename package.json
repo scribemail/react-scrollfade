@@ -1,5 +1,5 @@
 {
-  "name": "@scribemail/react-scrollfade",
+  "name": "@korhox/react-scrollfade",
   "version": "1.2.0",
   "description": "A React component for fading out the bottom of a scrolling element.",
   "main": "dist/index.js",
